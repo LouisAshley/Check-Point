@@ -32,7 +32,14 @@
                             <outlet property="delegate" destination="aL8-OD-QZ0" id="4rk-1Z-kLg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Check Point" id="kOd-Yf-DLq"/>
+                    <navigationItem key="navigationItem" title="Check Point" id="kOd-Yf-DLq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="5dD-ls-tAi">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="aL8-OD-QZ0" id="f2l-JF-0KZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jCC-rq-ggX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

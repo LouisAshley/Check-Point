@@ -12,6 +12,7 @@
 		F6F8CC522226D56500E6F135 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F8CC502226D56500E6F135 /* Main.storyboard */; };
 		F6F8CC542226D56600E6F135 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F8CC532226D56600E6F135 /* Assets.xcassets */; };
 		F6F8CC572226D56600E6F135 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F8CC552226D56600E6F135 /* LaunchScreen.storyboard */; };
+		F6F8CC62222703DD00E6F135 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8CC61222703DD00E6F135 /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		F6F8CC532226D56600E6F135 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F6F8CC562226D56600E6F135 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F6F8CC582226D56600E6F135 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6F8CC61222703DD00E6F135 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,8 @@
 			isa = PBXGroup;
 			children = (
 				F6F8CC4B2226D56400E6F135 /* Check Point */,
+				F6F8CC632227048500E6F135 /* Supporting Files */,
+				F6F8CC582226D56600E6F135 /* Info.plist */,
 				F6F8CC4A2226D56400E6F135 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,14 +58,45 @@
 		F6F8CC4B2226D56400E6F135 /* Check Point */ = {
 			isa = PBXGroup;
 			children = (
-				F6F8CC4C2226D56500E6F135 /* AppDelegate.swift */,
-				F6F8CC4E2226D56500E6F135 /* ToDoListViewController.swift */,
-				F6F8CC502226D56500E6F135 /* Main.storyboard */,
-				F6F8CC532226D56600E6F135 /* Assets.xcassets */,
-				F6F8CC552226D56600E6F135 /* LaunchScreen.storyboard */,
-				F6F8CC582226D56600E6F135 /* Info.plist */,
+				F6F8CC602227038600E6F135 /* Model */,
+				F6F8CC5F2227037E00E6F135 /* View */,
+				F6F8CC5E2227037300E6F135 /* Controller */,
 			);
 			path = "Check Point";
+			sourceTree = "<group>";
+		};
+		F6F8CC5E2227037300E6F135 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8CC4E2226D56500E6F135 /* ToDoListViewController.swift */,
+				F6F8CC4C2226D56500E6F135 /* AppDelegate.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F6F8CC5F2227037E00E6F135 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8CC502226D56500E6F135 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F6F8CC602227038600E6F135 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8CC61222703DD00E6F135 /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F6F8CC632227048500E6F135 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6F8CC552226D56600E6F135 /* LaunchScreen.storyboard */,
+				F6F8CC532226D56600E6F135 /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +172,7 @@
 			files = (
 				F6F8CC4F2226D56500E6F135 /* ToDoListViewController.swift in Sources */,
 				F6F8CC4D2226D56500E6F135 /* AppDelegate.swift in Sources */,
+				F6F8CC62222703DD00E6F135 /* Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4G8276757U;
-				INFOPLIST_FILE = "Check Point/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4G8276757U;
-				INFOPLIST_FILE = "Check Point/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

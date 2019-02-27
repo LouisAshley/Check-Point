@@ -10,10 +10,19 @@ import UIKit
 
 class ToDoListViewController: UITableViewController {
     
+    // Variables
     var itemArray = ["Find Andy", "Buy Eggs", "Buy Pokemon"]
+    
+    // Constants
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Reloads the user defaults
+        if let items = defaults.array(forKey: "ToDoListArray") as? [String] {
+            itemArray = items
+        }
         
     }
     
@@ -33,6 +42,9 @@ class ToDoListViewController: UITableViewController {
         return cell
     }
     
+    
+    
+    
     //MARK - Tableview Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -49,6 +61,9 @@ class ToDoListViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
+    
+    
     //MARK - Add New Items
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -63,6 +78,9 @@ class ToDoListViewController: UITableViewController {
             
             // What will happen once the user clicks the add item button on our UIAlert
             self.itemArray.append(textFieldString.text!)
+            
+            // Saves the itemArray to the userDefaults (Doesn't load it back when you terminate the app), saves to the pList file, eveything going in has to be a key value pair. 
+            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
             
             // Reloads the tableView to make the newly added item appear
             self.tableView.reloadData()

@@ -14,27 +14,18 @@ class ToDoListViewController: UITableViewController {
     var itemArray = [Item]()
     
     // Constants
-    let defaults = UserDefaults.standard
+    // Creates the path to where we are gonna save our newly made plist.
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(dataFilePath!)
         
-        let newItem = Item()
-        newItem.title = "Find Mike"
-        itemArray.append(newItem)
+        // Loads the items from the plist
+        loadItems()
         
-        let newItem2 = Item()
-        newItem2.title = "Make a cake"
-        itemArray.append(newItem2)
-        
-        let newItem3 = Item()
-        newItem3.title = "Bake Bread"
-        itemArray.append(newItem3)
-        
-//         Reloads the user defaults
-        if let items = defaults.array(forKey: "ToDoListArray") as? [Item] {
-            itemArray = items
-        }
         
     }
     
@@ -55,7 +46,7 @@ class ToDoListViewController: UITableViewController {
         cell.textLabel?.text = item.title
         
         
-     // Checks to see if the item.done is true or not, if it is then it sets it to .checkmark, if it's false it's set to .none
+        // Checks to see if the item.done is true or not, if it is then it sets it to .checkmark, if it's false it's set to .none
         cell.accessoryType = item.done ? .checkmark : .none
         
         // Returns the cell to display
@@ -69,9 +60,11 @@ class ToDoListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-    // Sees if our model elements are true or false
+        // Sees if our model elements are true or false
         itemArray[indexPath.row].done = !itemArray[indexPath.row].done
-        tableView.reloadData()
+        
+        // Saves the checkmark to our plist
+        saveItems()
         
         
         // Deselects the cell so it doesn't stay highlighted
@@ -97,12 +90,7 @@ class ToDoListViewController: UITableViewController {
             let newItem = Item()
             newItem.title = textFieldString.text!
             self.itemArray.append(newItem)
-            
-            // Saves the itemArray to the userDefaults (Doesn't load it back when you terminate the app), saves to the pList file, eveything going in has to be a key value pair. 
-            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
-            
-            // Reloads the tableView to make the newly added item appear
-            self.tableView.reloadData()
+            self.saveItems()
         }
         
         // Adds a text field to the UIAlert, sets its placeholder
@@ -119,6 +107,38 @@ class ToDoListViewController: UITableViewController {
         
     }
     
+    
+    //MARK - Model Manipulation Methods
+    
+    
+    // Function to save the data
+    func saveItems() {
+        // Encodes the data to the file path specified in dataFilePath and saves it as a plist in the form of an array. It encodes the data here into data that is stored as a plist
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(self.itemArray)
+            try data.write(to: self.dataFilePath!)
+        } catch {
+            print("Error in encoding itemArray \(error)")
+        }
+        
+        // Reloads the tableView to make the newly added item appear
+        self.tableView.reloadData()
+    }
+    
+    // Function to load the data, this decoder decodes the plist data to be usable again in swift data
+    func loadItems() {
+        
+        if let data = try? Data(contentsOf: dataFilePath!) {
+            let decoder = PropertyListDecoder()
+            do {
+                itemArray = try decoder.decode([Item].self, from: data)
+            } catch {
+                print("Error \(error)")
+            }
+        }
+    }
     
     
     

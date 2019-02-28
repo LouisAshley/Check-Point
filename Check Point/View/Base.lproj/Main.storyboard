@@ -10,16 +10,63 @@
     </dependencies>
     <scenes>
         <!--Check Point-->
-        <scene sceneID="nRb-ny-B0i">
+        <scene sceneID="5Mq-qP-gyO">
             <objects>
-                <tableViewController id="aL8-OD-QZ0" customClass="ToDoListViewController" customModule="Check_Point" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YGu-B7-IUC">
+                <tableViewController id="EHF-XH-hCQ" customClass="CategoryViewController" customModule="Check_Point" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RWO-CH-jDi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoItemCell" id="ODN-FN-rA9">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="SB6-qg-r9z">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SB6-qg-r9z" id="miM-ZZ-V0u">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="EHF-XH-hCQ" id="4XN-7g-Z8W"/>
+                            <outlet property="delegate" destination="EHF-XH-hCQ" id="ioj-Oi-fu0"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Check Point" id="zkc-4D-O7C">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qYk-ja-1AY">
+                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addButtonPressed:" destination="EHF-XH-hCQ" id="5Az-JH-ef9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="aL8-OD-QZ0" kind="show" identifier="goToDoList" id="EZ3-PC-wJG"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jqf-kx-mdl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="500" y="-56"/>
+        </scene>
+        <!--Items-->
+        <scene sceneID="nRb-ny-B0i">
+            <objects>
+                <tableViewController storyboardIdentifier="goToItems" id="aL8-OD-QZ0" customClass="ToDoListViewController" customModule="Check_Point" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="YGu-B7-IUC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="fMF-2T-ele">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="aL8-OD-QZ0" id="uxm-RT-CMh"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToDoItemCell" id="ODN-FN-rA9">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ODN-FN-rA9" id="0Fg-z3-5Rv">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -32,7 +79,7 @@
                             <outlet property="delegate" destination="aL8-OD-QZ0" id="4rk-1Z-kLg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Check Point" id="kOd-Yf-DLq">
+                    <navigationItem key="navigationItem" title="Items" id="kOd-Yf-DLq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5dD-ls-tAi">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -43,7 +90,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jCC-rq-ggX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231.2" y="71.514242878560722"/>
+            <point key="canvasLocation" x="1322" y="72"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mcY-jS-fVJ">
@@ -60,12 +107,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="aL8-OD-QZ0" kind="relationship" relationship="rootViewController" id="gG2-Z9-jP9"/>
+                        <segue destination="EHF-XH-hCQ" kind="relationship" relationship="rootViewController" id="hVD-Ir-jst"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LqW-t3-RLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="343" y="72"/>
+            <point key="canvasLocation" x="-326" y="72"/>
         </scene>
     </scenes>
 </document>

@@ -48,7 +48,7 @@
             </objects>
             <point key="canvasLocation" x="500" y="-56"/>
         </scene>
-        <!--Items-->
+        <!--ToDo Items-->
         <scene sceneID="nRb-ny-B0i">
             <objects>
                 <tableViewController storyboardIdentifier="goToItems" id="aL8-OD-QZ0" customClass="ToDoListViewController" customModule="Check_Point" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="aL8-OD-QZ0" id="4rk-1Z-kLg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Items" id="kOd-Yf-DLq">
+                    <navigationItem key="navigationItem" title="ToDo Items" id="kOd-Yf-DLq">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5dD-ls-tAi">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

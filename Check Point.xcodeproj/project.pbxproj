@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E736BE7C0BD37247C916624 /* Pods_Check_Point.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88483CE14A059489E2CCC4DE /* Pods_Check_Point.framework */; };
 		F67043472228240F00534713 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F67043452228240F00534713 /* DataModel.xcdatamodeld */; };
 		F67043492228524A00534713 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67043482228524A00534713 /* CategoryViewController.swift */; };
 		F6F8CC4D2226D56500E6F135 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F8CC4C2226D56500E6F135 /* AppDelegate.swift */; };
@@ -17,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		36F5BC1C30F7B1B686C3624B /* Pods-Check Point.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check Point.debug.xcconfig"; path = "Target Support Files/Pods-Check Point/Pods-Check Point.debug.xcconfig"; sourceTree = "<group>"; };
+		88483CE14A059489E2CCC4DE /* Pods_Check_Point.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Check_Point.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90837A83A11812FD48E42B72 /* Pods-Check Point.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Check Point.release.xcconfig"; path = "Target Support Files/Pods-Check Point/Pods-Check Point.release.xcconfig"; sourceTree = "<group>"; };
 		F67043462228240F00534713 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		F67043482228524A00534713 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		F6F8CC492226D56400E6F135 /* Check Point.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Check Point.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -33,12 +37,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E736BE7C0BD37247C916624 /* Pods_Check_Point.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DE9B378BC8B7F4BF8524553 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88483CE14A059489E2CCC4DE /* Pods_Check_Point.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		361E0107AC273F738DFE87A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36F5BC1C30F7B1B686C3624B /* Pods-Check Point.debug.xcconfig */,
+				90837A83A11812FD48E42B72 /* Pods-Check Point.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F6F8CC402226D56400E6F135 = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +69,8 @@
 				F6F8CC632227048500E6F135 /* Supporting Files */,
 				F6F8CC582226D56600E6F135 /* Info.plist */,
 				F6F8CC4A2226D56400E6F135 /* Products */,
+				361E0107AC273F738DFE87A0 /* Pods */,
+				0DE9B378BC8B7F4BF8524553 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F6F8CC5B2226D56600E6F135 /* Build configuration list for PBXNativeTarget "Check Point" */;
 			buildPhases = (
+				11EA3361285C851AC9509138 /* [CP] Check Pods Manifest.lock */,
 				F6F8CC452226D56400E6F135 /* Sources */,
 				F6F8CC462226D56400E6F135 /* Frameworks */,
 				F6F8CC472226D56400E6F135 /* Resources */,
+				F883E25F62477FDB6407F5FE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +194,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		11EA3361285C851AC9509138 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Check Point-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F883E25F62477FDB6407F5FE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Check Point/Pods-Check Point-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Check Point/Pods-Check Point-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F6F8CC452226D56400E6F135 /* Sources */ = {
@@ -320,6 +396,7 @@
 		};
 		F6F8CC5C2226D56600E6F135 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36F5BC1C30F7B1B686C3624B /* Pods-Check Point.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +415,7 @@
 		};
 		F6F8CC5D2226D56600E6F135 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90837A83A11812FD48E42B72 /* Pods-Check Point.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
